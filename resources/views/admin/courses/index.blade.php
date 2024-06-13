@@ -217,12 +217,17 @@
                                 <a href="course-students.html" class="flex items-center justify-between w-full text-sm font-bold">
                                     Students
                                 </a>
-                                <a href="course-details.html" class="flex items-center justify-between w-full text-sm font-bold">
+                                <a href="{{ route('dashboard.courses.edit', $course) }}" class="flex items-center justify-between w-full text-sm font-bold">
                                     Edit Course
                                 </a>
-                                <a href="#" class="flex items-center justify-between font-bold text-sm w-full text-[#FD445E]">
-                                    Delete
-                                </a>
+
+                                <form method="POST" action="{{ route('dashboard.courses.destroy', $course) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="flex items-center justify-between font-bold text-sm w-full text-[#FD445E]">
+                                        Delete
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </div>
